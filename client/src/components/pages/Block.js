@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { setBlock } from '../../redux/actions/blockchainActions';
 import { apiBlock } from '../../constants/api-url';
 
 const Block = () => {
+    const [miningBlock, setMiningBlock] = useState(false);
     const block = useSelector(state => state.allBlockchain.block);
     const dispatch = useDispatch();
 
@@ -25,9 +26,18 @@ const Block = () => {
             block
         ).then(res => {
             dispatch(setBlock(res.data));
+            setMiningBlock(false);
         }).catch(err => {
             console.log(err);
         });
+    }
+
+    const renderButton = () => {
+        if (!miningBlock) {
+            return (<button>Mine</button>);
+        } else {
+            return (<button disabled>Mine <div className='loader'></div></button>);
+        }
     }
 
     useEffect(() => {
@@ -36,12 +46,18 @@ const Block = () => {
         }
     }, []);
 
+    useEffect(() => {
+        if (miningBlock) {
+            mine();
+        }
+    }, [miningBlock]);
+
     return (
         <div className='content'>
             <h1>Block</h1>
             <div className='block_content'>
                 <div className={`container ${block.hash === block.validHash ? 'valid' : 'invalid'}`}>
-                    <form onSubmit={e => { mine(); e.preventDefault(); }}>
+                    <form onSubmit={e => { setMiningBlock(true); e.preventDefault(); }}>
                         <div className="row">
                             <div className="col-25">
                                 <label>Block Number</label>
@@ -75,7 +91,7 @@ const Block = () => {
                             </div>
                         </div>
                         <div className="row">
-                            <button>Mine</button>
+                            {renderButton()}
                         </div>
                     </form>
                 </div>

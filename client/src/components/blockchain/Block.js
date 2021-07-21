@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Data from './Data';
 import Coinbase from './Coinbase';
 import Transactions from './Transactions';
 import TransactionsWithSignatures from './TransactionsWithSignatures';
 
 const Block = ({ status, block, setBlock, mine }) => {
+    const [miningBlock, setMiningBlock] = useState(false);
+
     const renderContent = () => {
         if (block["data"] !== undefined) {
             return (
@@ -51,9 +53,27 @@ const Block = ({ status, block, setBlock, mine }) => {
         }
     }
 
+    const renderButton = () => {
+        if (!miningBlock) {
+            return (<button>Mine</button>);
+        } else {
+            return (<button disabled>Mine <div className='loader'></div></button>);
+        }
+    }
+
+    useEffect(() => {
+        if (miningBlock) {
+            mine();
+        } 
+    }, [miningBlock]);
+
+    useEffect(() => {
+        setMiningBlock(false);
+    }, [mine]);
+
     return (
         <div className={`block_container ${status}`}>
-            <form onSubmit={e => { mine(); e.preventDefault(); }}>
+            <form onSubmit={e => {setMiningBlock(true); e.preventDefault();}}>
                 <div className="row">
                     <div className="col-25">
                         <label>Block Number</label>
@@ -88,7 +108,7 @@ const Block = ({ status, block, setBlock, mine }) => {
                     </div>
                 </div>
                 <div className="row">
-                    <button>Mine</button>
+                    {renderButton()}
                 </div>
             </form>
         </div>

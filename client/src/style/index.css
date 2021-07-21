@@ -1,9 +1,36 @@
+@-webkit-keyframes imgAnim {
+  from {
+    -webkit-opacity: 0%;
+  }
+  to {
+    -webkit-opacity: 100%;
+  }
+}
+
 @keyframes imgAnim {
   from {
     opacity: 0%;
   }
   to {
     opacity: 100%;
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -338,8 +365,8 @@ img {
   width: 400px;
   height: 280px;
   margin: 20px;
-  animation-name: imgAnim;
-  animation-duration: 5s;
+  -webkit-animation: imgAnim 5s linear;
+  animation: imgAnim 5s linear;
 }
 
 .center {
@@ -351,4 +378,15 @@ img {
 .main_content {
   font-weight: normal;
   font-size: 16px;
+}
+
+.loader {
+  float: right;
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #3498db;
+  width: 12px;
+  height: 12px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
