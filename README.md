@@ -1,4 +1,4 @@
-# Internet_Technology_Blockchain - Final Project
+# Internet Technology Blockchain - Final Project
 
 ### About The Project
 
@@ -32,10 +32,10 @@ Server side:
 ### Images
 
 <img src="https://firebasestorage.googleapis.com/v0/b/run-tracker-app-74976.appspot.com/o/Blockchain.png?alt=media&token=f20cb632-8242-4345-87ac-3d9d8a286b8e" 
-alt="Blockchain" height="320" width="480"/>
+alt="Blockchain" height="300" width="420"/>
 <img src="https://firebasestorage.googleapis.com/v0/b/run-tracker-app-74976.appspot.com/o/Coinbase.png?alt=media&token=3e95bd4f-210c-431d-a936-15e3a438816e" 
-alt="Coinbase" height="320" width="480"/>
+alt="Coinbase" height="300" width="420"/>
 <img src="https://firebasestorage.googleapis.com/v0/b/run-tracker-app-74976.appspot.com/o/FullBlockchain.png?alt=media&token=0fbcdb07-8329-48ac-bfa2-012c7e3eea5c" 
-alt="Full Blockchain" height="320" width="480"/>
+alt="Full Blockchain" height="300" width="420"/>
 <img src="https://firebasestorage.googleapis.com/v0/b/run-tracker-app-74976.appspot.com/o/Transaction.png?alt=media&token=43573e61-728e-432b-b631-733e5be1b312" 
-alt="Transaction" height="320" width="480"/>
+alt="Transaction" height="300" width="420"/>
