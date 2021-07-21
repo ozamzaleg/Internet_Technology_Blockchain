@@ -24,6 +24,7 @@
 Client side:
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
+* [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
 
 Server side:
 * [NodeJs](https://nodejs.org/en/)
