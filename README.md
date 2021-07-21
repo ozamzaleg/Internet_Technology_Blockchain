@@ -2,7 +2,7 @@
 
 ### About The Project
 
-<h3>This website is a blockchain demo simulator that will demonstrate the following options:</h3>
+<h4>This website is a blockchain demo simulator that will demonstrate the following options:</h4>
 <ul>
     <li>Hash</li>
     <li>Block</li>
