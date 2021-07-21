@@ -1,7 +1,7 @@
 import React from 'react';
 import TransactionWithSignature from './TransactionWithSignature';
 
-const TransactionsWithSignatures = ({ transactionsWithSignatures, setTransactionsWithSignatures, disabledInput }) => {
+const TransactionsWithSignatures = ({ transactionsWithSignatures, setTransactionsWithSignatures }) => {
     const setTx = (i, transactionWithSignature) => {
         transactionsWithSignatures[i] = transactionWithSignature;
         setTransactionsWithSignatures(transactionsWithSignatures);
@@ -14,7 +14,6 @@ const TransactionsWithSignatures = ({ transactionsWithSignatures, setTransaction
                     <TransactionWithSignature
                         transactionWithSignature={transactionWithSignature}
                         setTransactionWithSignature={transactionWithSignature => setTx(i, transactionWithSignature)}
-                        disabledInput={disabledInput}
                     />
                 </div>
             );

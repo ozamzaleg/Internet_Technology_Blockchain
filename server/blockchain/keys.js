@@ -3,19 +3,21 @@ const ec = new EC('secp256k1');
 const { TransactionHash } = require('./transactionHash');
 
 const privateKeyToPublic = privateKey => {
-    var key;
+    if (privateKey === '') {
+        return null;
+    }
 
-    if (privateKey === '' || Number(privateKey) === 0)
-        key = ec.genKeyPair();
-    else
-        key = ec.keyFromPrivate(privateKey);
-
+    const key = ec.keyFromPrivate(privateKey);
     const publicKey = key.getPublic('hex');
 
     return publicKey;
 }
 
 const signMessage = (message, privateKey) => {
+    if (privateKey === '') {
+        return null;
+    }
+    
     const key = ec.keyFromPrivate(privateKey);
     const signature = key.sign(message, 'base64');
 

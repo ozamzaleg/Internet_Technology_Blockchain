@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setTransactionsSignature } from '../../redux/actions/keysActions';
 import { apiKeys } from '../../constants/api-url';
 import TransactionMessage from '../keys/TransactionMessage';
-import generateRandomKey from '../../services/generateRandomKey';
+import { generateRandomKey } from '../../services/keys';
 
 const SignTransactions = ({ transaction, setTransaction, privateKey, setPrivateKey, signature }) => {
     const dispatch = useDispatch();
@@ -17,7 +17,8 @@ const SignTransactions = ({ transaction, setTransaction, privateKey, setPrivateK
                 privateKey: privateKey !== '' ? privateKey : generateRandomKey()
             }
         ).then(res => {
-            dispatch(setTransactionsSignature(res.data));
+            setTransaction({ ...transaction, from: res.data.publicKey });
+            dispatch(setTransactionsSignature(res.data.signature));
         }).catch(err => {
             console.log(err);
         });

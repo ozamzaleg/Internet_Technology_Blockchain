@@ -19,12 +19,14 @@ const Distributed = ({ distributed, setDistributed, api }) => {
     }
 
     useEffect(() => {
-        axios.get(api.FETCH)
-            .then(res => {
-                dispatch(setDistributed(res.data));
-            }).catch(err => {
-                console.log(err);
-            });
+        if (Object.keys(distributed).length === 0) {
+            axios.get(api.FETCH)
+                .then(res => {
+                    dispatch(setDistributed(res.data));
+                }).catch(err => {
+                    console.log(err);
+                });
+        }
     }, []);
 
     const renderDistributed = Object.keys(distributed).map(i => {

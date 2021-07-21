@@ -20,13 +20,10 @@ const Block = ({ status, block, setBlock, mine }) => {
                         <Coinbase
                             coinbase={block.coinbase}
                             setCoinbase={coinbase => setBlock({ ...block, coinbase })}
-                            errorInput={''}
-                            disabledInput={false}
                         />
                         <Transactions
                             transactions={block.transactions}
                             setTransactions={transactions => setBlock({ ...block, transactions })}
-                            disabledInput={false}
                         />
                     </>
                 );
@@ -36,13 +33,10 @@ const Block = ({ status, block, setBlock, mine }) => {
                         <Coinbase
                             coinbase={block.coinbase}
                             setCoinbase={coinbase => setBlock({ ...block, coinbase })}
-                            errorInput={''}
-                            disabledInput={false}
                         />
                         <TransactionsWithSignatures
                             transactionsWithSignatures={block.transactionsWithSignatures}
                             setTransactionsWithSignatures={transactionsWithSignatures => setBlock({ ...block, transactionsWithSignatures })}
-                            disabledInput={false}
                         />
                     </>
                 );
@@ -52,7 +46,6 @@ const Block = ({ status, block, setBlock, mine }) => {
                 <Transactions
                     transactions={block.transactions}
                     setTransactions={transactions => setBlock({ ...block, transactions })}
-                    disabledInput={false}
                 />
             );
         }

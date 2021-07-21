@@ -5,7 +5,7 @@ function Main() {
     return (
         <div className='content'>
             <h1>Blockchain</h1>
-            <div className='blockchain_content'>
+            <div className='blockchain_content main_content'>
                 <div className='center'>
                     <img src={img} alt='blockchain' />
                 </div>
@@ -22,7 +22,7 @@ function Main() {
                     The blockchain was invented by a person (or group of people) using the name Satoshi Nakamoto in 2008 to serve as the public transaction ledger of the cryptocurrency bitcoin. The identity of Satoshi Nakamoto remains unknown to date. The invention of the blockchain for bitcoin made it the first digital currency to solve the double-spending problem without the need of a trusted authority or central server. The bitcoin design has inspired other applications and blockchains that are readable by the public and are widely used by cryptocurrencies. The blockchain is considered a type of payment rail.  Private blockchains have been proposed for business use but Computerworld called the marketing of such privatized blockchains without a proper security model "snake oil". However, others have argued that allowed blockchains, if carefully designed, may be more decentralized and therefore more secure in practice than permissionless ones. (Wikipedia).
                 </p>
 
-                This website is a blockchain demo simulator that will demonstrate the following options: <br />
+                <h3>This website is a blockchain demo simulator that will demonstrate the following options:</h3>
                 <ul>
                     <li>Hash</li>
                     <li>Block</li>
@@ -37,7 +37,7 @@ function Main() {
                 </ul>
                     
                 <div className='center'>
-                    Made by Elad Shoham and Oz Amzaleg.
+                    &copy; Made by Elad Shoham and Oz Amzaleg - {new Date().getFullYear()}
                 </div>
             </div>
         </div>

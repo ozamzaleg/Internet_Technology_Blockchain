@@ -1,6 +1,6 @@
 import { key } from '../constants/constants';
 
-const generateRandomKey = () => {
+export const generateRandomKey = () => {
     let randomKey = '';
 
     for (var i = 0; i < key.KEY_PARTS; i++) {
@@ -9,5 +9,3 @@ const generateRandomKey = () => {
 
     return randomKey;
 }
-
-export default generateRandomKey;

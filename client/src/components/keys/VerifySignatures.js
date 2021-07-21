@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { localStorageKeys } from '../../constants/localStorageKeys';
-import useLocalStorage from '../../services/useLocalStorage';
 import SignaturesMessage from '../keys/SignaturesMessage';
 import { apiKeys } from '../../constants/api-url';
 
-const VerifySignatures = ({ message, setMessage, signature }) => {
-    const [publicKey, setPublicKey] = useLocalStorage(localStorageKeys.PUBLIC_KEY, '');
+const VerifySignatures = ({ message, setMessage, publicKey, setPublicKey, signature }) => {
     const [status, setStatus] = useState('');
 
-    const verify = () => {
+    const verify = e => {
+        e.preventDefault();
+
         axios.post(
             apiKeys.VERIFY_MESSAGE,
             { message, publicKey, signature }
@@ -22,7 +21,7 @@ const VerifySignatures = ({ message, setMessage, signature }) => {
 
     return (
         <div className='tab_signatures_height'>
-            <form onSubmit={e => { verify(); e.preventDefault(); }}>
+            <form onSubmit={e => verify(e)}>
                 <SignaturesMessage message={message} setMessage={setMessage} />
                 <div className="row">
                     <div className="col-25">

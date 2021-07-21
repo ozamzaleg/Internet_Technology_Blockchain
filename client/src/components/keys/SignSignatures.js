@@ -2,14 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setMessageSignature } from '../../redux/actions/keysActions';
-import { localStorageKeys } from '../../constants/localStorageKeys';
-import useLocalStorage from '../../services/useLocalStorage';
 import SignaturesMessage from '../keys/SignaturesMessage';
 import { apiKeys } from '../../constants/api-url';
-import generateRandomKey from '../../services/generateRandomKey';
+import { generateRandomKey } from '../../services/keys';
 
-const Signatures = ({ message, setMessage, signature }) => {
-    const [privateKey, setPrivateKey] = useLocalStorage(localStorageKeys.PRIVATE_KEY, '');
+const Signatures = ({ message, setMessage, privateKey, setPrivateKey, signature }) => {
     const dispatch = useDispatch();
 
     const sign = e => {
@@ -17,10 +14,7 @@ const Signatures = ({ message, setMessage, signature }) => {
 
         axios.post(
             apiKeys.SIGN_MESSAGE,
-            {
-                message, 
-                privateKey: privateKey !== '' ? privateKey : generateRandomKey()
-            }
+            { message, privateKey }
         ).then(res => {
             dispatch(setMessageSignature(res.data));
         }).catch(err => {
@@ -37,7 +31,7 @@ const Signatures = ({ message, setMessage, signature }) => {
                         <label>Private Key</label>
                     </div>
                     <div className="col-75">
-                        <input type="text" value={privateKey} onChange={e => setPrivateKey(e.target.value)} />
+                        <input type="number" value={privateKey} onChange={e => setPrivateKey(e.target.value)} />
                     </div>
                 </div>
                 <div className="row">

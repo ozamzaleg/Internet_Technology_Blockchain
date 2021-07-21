@@ -345,4 +345,10 @@ img {
 .center {
   position: relative;
   text-align: center;
+  font-size: 14px;
+}
+
+.main_content {
+  font-weight: normal;
+  font-size: 16px;
 }

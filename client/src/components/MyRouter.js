@@ -12,7 +12,7 @@ import Signatures from './pages/Signatures';
 import Transaction from './pages/Transaction';
 import FullBlockchain from './pages/FullBlockchain';
 
-function MyRouter() {
+const MyRouter = () => {
     return (
         <Router>
             <div className="links">

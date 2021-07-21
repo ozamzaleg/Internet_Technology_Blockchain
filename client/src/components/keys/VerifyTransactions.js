@@ -6,7 +6,9 @@ import { apiKeys } from '../../constants/api-url';
 const VerifyTransactions = ({ transaction, setTransaction, signature }) => {
     const [status, setStatus] = useState('');
 
-    const verify = () => {
+    const verify = e => {
+        e.preventDefault();
+
         axios.post(
             apiKeys.VERIFY_TRANSACTIONS,
             { transaction, signature }
@@ -19,8 +21,11 @@ const VerifyTransactions = ({ transaction, setTransaction, signature }) => {
 
     return (
         <div className='tab_transactions_height'>
-            <form onSubmit={e => { verify(); e.preventDefault(); }}>
-                <TransactionMessage transaction={transaction} setTransaction={setTransaction} />
+            <form onSubmit={e => verify(e)}>
+                <TransactionMessage 
+                    transaction={transaction} 
+                    setTransaction={setTransaction} 
+                />
                 <div className="row">
                     <div className="col-25">
                         <label>Signature</label>

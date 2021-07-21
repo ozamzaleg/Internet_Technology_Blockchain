@@ -23,7 +23,8 @@ router.post('/verifyMessage', (req, res) => {
 router.post('/signTransactions', (req, res) => {
     const { transaction, privateKey } = req.body;
     const signature = signTransaction(transaction, privateKey);
-    res.json(signature);
+    const publicKey = privateKeyToPublic(privateKey);
+    res.json({ publicKey, signature });
 });
 
 router.post('/verifyTransactions', (req, res) => {

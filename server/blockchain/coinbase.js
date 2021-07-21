@@ -13,7 +13,7 @@ class Block {
     }
 
     calculateHash() {
-        return SHA256(this.index + this.nonce + JSON.stringify(this.coinbase) + JSON.stringify(this.transactions) + this.prev).toString();
+        return SHA256(this.index + JSON.stringify(this.coinbase) + JSON.stringify(this.transactions) + this.prev + this.nonce).toString();
     }
 
     mineBlock(difficulty) {

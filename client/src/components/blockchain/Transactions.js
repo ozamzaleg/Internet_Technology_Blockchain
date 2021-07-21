@@ -1,7 +1,7 @@
 import React from 'react';
 import Transaction from './Transaction';
 
-const Transactions = ({ transactions, setTransactions, disabledInput }) => {
+const Transactions = ({ transactions, setTransactions }) => {
     const setTx = (i, transaction) => {
         transactions[i] = transaction;
         setTransactions(transactions);
@@ -14,7 +14,6 @@ const Transactions = ({ transactions, setTransactions, disabledInput }) => {
                     <Transaction
                         transaction={transaction}
                         setTransaction={transaction => setTx(i, transaction)}
-                        disabledInput={disabledInput}
                     />
                 </div>
             );

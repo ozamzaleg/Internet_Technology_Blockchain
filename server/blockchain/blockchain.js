@@ -12,7 +12,7 @@ class Block {
     }
 
     calculateHash() {
-        return SHA256(this.index + this.nonce + this.data + this.prev).toString();
+        return SHA256(this.index + this.data + this.prev + this.nonce).toString();
     }
 
     mineBlock(difficulty) {
@@ -72,8 +72,10 @@ class Blockchain {
     }
 
     mineBlockCalculateHash(index) {
+        //console.log(this.chain[index]);
         const currentBlock = new Block(this.chain[index].index, this.chain[index].data, this.chain[index].prev);
         currentBlock.mineBlock(this.difficulty);
+        //console.log(currentBlock);
         this.chain[index] = currentBlock;
         this.calculateBlocksHash(index);
     }

@@ -10,12 +10,14 @@ const BlockchainRender = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        axios.get(apiBlockchain.FETCH)
-            .then(res => {
-                dispatch(setBlockchain(res.data));
-            }).catch(err => {
-                console.log(err);
-            });
+        if (blockchain.length === 0) {
+            axios.get(apiBlockchain.FETCH)
+                .then(res => {
+                    dispatch(setBlockchain(res.data));
+                }).catch(err => {
+                    console.log(err);
+                });
+        }
     }, []);
 
     const fetchData = async (index, api) => {

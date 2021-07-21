@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import useLocalStorage from '../../services/useLocalStorage';
@@ -6,16 +6,16 @@ import { localStorageKeys } from '../../constants/localStorageKeys';
 import SignTransactions from '../keys/SignTransactions';
 import VerifyTransactions from '../keys/VerifyTransactions';
 import SignaturesTabs from '../keys/SignaturesTabs';
-import generateRandomKey from '../../services/generateRandomKey';
 import { apiKeys } from '../../constants/api-url';
+import { key } from '../../constants/constants';
+import { generateRandomKey } from '../../services/keys';
 
 const Transaction = () => {
-    const [transaction, setTransaction] = useLocalStorage(localStorageKeys.TRANSACTION, {
+    const [transaction, setTransaction] = useState({
         amount: 0,
         from: '',
-        to: ''
+        to: key.TO_ADDRESS
     });
-    const [publicKey, setPublicKey] = useLocalStorage(localStorageKeys.PUBLIC_KEY, '');
     const [privateKey, setPrivateKey] = useLocalStorage(localStorageKeys.PRIVATE_KEY, '');
     const signature = useSelector(state => state.allKeys.transactionsSignature);
 
@@ -29,25 +29,15 @@ const Transaction = () => {
     }
 
     useEffect(() => {
-        setTransaction({ ...transaction, from: publicKey });
-
-        if (!transaction.to) {
-            const privateKey = generateRandomKey();
-
-            axios.post(
-                apiKeys.FETCH_PUBLIC_KEY,
-                { privateKey }
-            ).then(res => {
-                setTransaction({ ...transaction, to: res.data });
-            }).catch(err => {
-                console.log(err);
-            });
-        }
-    }, []);
-
-    useEffect(() => {
-        setPublicKey(transaction.from);
-    }, [transaction]);
+        axios.post(
+            apiKeys.FETCH_PUBLIC_KEY,
+            { privateKey: privateKey !== '' ? privateKey : generateRandomKey() }
+        ).then(res => {
+            setTransaction({ ...transaction, from: res.data });
+        }).catch(err => {
+            console.log(err);
+        });
+    }, [privateKey]);
 
     return (
         <div className='content'>

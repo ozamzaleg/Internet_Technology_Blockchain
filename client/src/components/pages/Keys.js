@@ -1,29 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { localStorageKeys } from '../../constants/localStorageKeys';
 import useLocalStorage from '../../services/useLocalStorage';
-import generateRandomKey from '../../services/generateRandomKey';
+import { generateRandomKey } from '../../services/keys';
 import { apiKeys } from '../../constants/api-url';
 
 const Keys = () => {
-    const [publicKey, setPublicKey] = useLocalStorage(localStorageKeys.PUBLIC_KEY, '');
     const [privateKey, setPrivateKey] = useLocalStorage(localStorageKeys.PRIVATE_KEY, '');
+    const [publicKey, setPublicKey] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
-        if (privateKey === '') {
-            setPrivateKey(generateRandomKey());
-        }
+        setPublicKey(privateKey);
     }, []);
 
     useEffect(() => {
-        axios.post(
-            apiKeys.FETCH_PUBLIC_KEY,
-            { privateKey }
-        ).then(res => {
-            setPublicKey(res.data);
-        }).catch(err => {
-            console.log(err);
-        });
+        if (privateKey === '') {
+            setError('*Private key can\'t be empty');
+        } else {
+            setError('');
+
+            axios.post(
+                apiKeys.FETCH_PUBLIC_KEY,
+                { privateKey }
+            ).then(res => {
+                setPublicKey(res.data);
+            }).catch(err => {
+                console.log(err);
+            });
+        }
     }, [privateKey]);
 
     return (
@@ -38,6 +43,9 @@ const Keys = () => {
                             </div>
                             <div className="col-75">
                                 <input type="number" value={privateKey} onChange={e => setPrivateKey(e.target.value)} />
+                                <div className='error'>
+                                    {error}
+                                </div>
                             </div>
                         </div>
                         <div className="row">

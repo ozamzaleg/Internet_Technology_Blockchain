@@ -1,5 +1,5 @@
 import React from 'react';
-import Transaction from '../blockchain/Transaction';
+import Message from './Message';
 
 const TransactionMessage = ({ transaction, setTransaction }) => {
     return (
@@ -8,7 +8,7 @@ const TransactionMessage = ({ transaction, setTransaction }) => {
                 <label>Message</label>
             </div>
             <div className="col-75">
-                <Transaction
+                <Message
                     transaction={transaction}
                     setTransaction={transaction => setTransaction(transaction)}
                 />

@@ -31,7 +31,9 @@ const Block = () => {
     }
 
     useEffect(() => {
-        mine();
+        if (block["hash"] === undefined) {
+            mine();
+        }
     }, []);
 
     return (
