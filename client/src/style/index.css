@@ -1,0 +1,348 @@
+@keyframes imgAnim {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+body {
+  background-color: #272b30;
+  color: white;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+}
+
+.block_content {
+  border: 3px solid white;
+  border-radius: 12px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 720px;
+  font-weight: bold;
+}
+
+.blockchain_content {
+  background-color: #4e4e4e;
+  border: 3px solid white;
+  border-radius: 12px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 90%;
+  font-weight: bold;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid black;
+  width: 460px;
+  padding: 12px;
+  resize: vertical;
+}
+
+select {
+  width: 486px;
+}
+
+textarea {
+  resize: none;
+  height: 8em;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  color: black;
+}
+
+button {
+  border: 2px solid white;
+  border-radius: 12px;
+  position: relative;
+  background-color: #202020;
+  color: white;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 16px;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #606060;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #a0a0a0;
+  padding: 20px;
+}
+
+.block_container {
+  border-radius: 5px;
+  background-color: #a0a0a0;
+  padding: 20px;
+  width: 610px;
+}
+
+.col-25 {
+  float: left;
+  width: 20%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 80%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.hash_details {
+  margin: 10px;
+  font-size: 18px;
+  color: white;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+.links {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #181818;
+}
+
+.link {
+  float: left;
+  height: 35px;
+  background-color: #181818;
+  display: block;
+  color: white;
+  text-align: center;
+  line-height: 35px;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.link:hover:not(.active) {
+  background-color: #585858;
+}
+
+.block {
+  display: inline-block;
+  color: white;
+  padding: 14px;
+  text-decoration: none;
+  border: 3px solid white;
+  margin: 30px;
+}
+
+.valid {
+  background-color: #83e27a;
+}
+
+.invalid {
+  background-color: #ff6347;
+}
+
+.scroll_blockchain {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.scroll_transactions {
+  min-height: 164px;
+  max-height: 164px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mine_block {
+  border: 3px solid white;
+  background-color: gray;
+  position: sticky;
+  left: 50%;
+  transform: translate(-50%);
+  margin: 30px 0px;
+  padding: 14px;
+  width: 30em;
+}
+
+.keys {
+  border: 3px solid white;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  margin: 40px;
+  padding: 20px;
+}
+
+.signatures_element {
+  border: 3px solid white;
+  background-color: #202020;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 60%;
+  margin: 40px;
+  padding: 20px;
+}
+
+.signatures_tab {
+  background-color: lawngreen;
+  position: relative;
+  width: 100%;
+}
+
+.signatures_content {
+  background-color: lightslategray;
+  position: relative;
+  top: 4em;
+  width: 100%;
+  height: 400px;
+}
+
+.signatures {
+  position: relative;
+  top: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.message_element {
+  border: 3px solid white;
+  padding: 10px;
+}
+
+.tabs {
+  background-color: #a09a9a;
+  border: 3px solid white;
+  border-radius: 12px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 780px;
+  font-weight: bold;
+}
+
+.tab_signatures_height {
+  height: 400px;
+}
+
+.tab_transactions_height {
+  height: 300px;
+}
+
+.tab_links {
+  background-color: #2d2e2e;
+  border-bottom: 3px solid white;
+  border-radius: 6px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.tab_link {
+  border: 1px solid white;
+  float: left;
+  width: 100px;
+  height: 30px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.tab_link:hover {
+  background-color: #5e5d5d;
+}
+
+.tab_content {
+  position: relative;
+  top: 70px;
+  padding: 12px;
+}
+
+.valid_signature {
+  border-width: medium;
+  border-color: #01a50f;
+  color: #01a50f;
+}
+
+.invalid_signature {
+  border-width: medium;
+  border-color: #df3f23;
+  color: #df3f23;
+}
+
+.input_details {
+  width: 35px;
+  padding: 12px 4px;
+  text-align: center;
+}
+
+.input_data_three_variables {
+  width: 91px;
+}
+
+.input_large_data {
+  width: 253px;
+}
+
+.error {
+  color: #800000;
+}
+
+img {
+  width: 400px;
+  height: 280px;
+  margin: 20px;
+  animation-name: imgAnim;
+  animation-duration: 5s;
+}
+
+.center {
+  position: relative;
+  text-align: center;
+}
