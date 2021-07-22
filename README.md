@@ -28,7 +28,7 @@ Client side:
 
 Server side:
 * [NodeJs](https://nodejs.org/en/)
-* [MonogoDB](https://www.mongodb.com/)
+* [MongoDB](https://www.mongodb.com/)
 
 ### Images
 
