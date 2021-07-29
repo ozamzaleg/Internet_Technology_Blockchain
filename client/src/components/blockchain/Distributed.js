@@ -7,7 +7,7 @@ import Blockchain from './Blockchain';
 const Distributed = ({ distributed, setDistributed, api }) => {
     const dispatch = useDispatch();
 
-    const fetchData = async (peer, index, api) => {
+    const fetchData = (peer, index, api) => {
         axios.post(
             api,
             { distributed, peer, index }

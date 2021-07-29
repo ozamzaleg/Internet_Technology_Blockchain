@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { setMessageSignature } from '../../redux/actions/keysActions';
 import SignaturesMessage from '../keys/SignaturesMessage';
 import { apiKeys } from '../../constants/api-url';
-import { generateRandomKey } from '../../services/keys';
 
 const Signatures = ({ message, setMessage, privateKey, setPrivateKey, signature }) => {
     const dispatch = useDispatch();

@@ -20,7 +20,7 @@ const BlockchainRender = () => {
         }
     }, []);
 
-    const fetchData = async (index, api) => {
+    const fetchData = (index, api) => {
         axios.post(
             api,
             { blockchain, index }
