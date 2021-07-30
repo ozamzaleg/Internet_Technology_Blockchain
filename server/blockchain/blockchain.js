@@ -72,10 +72,8 @@ class Blockchain {
     }
 
     mineBlockCalculateHash(index) {
-        //console.log(this.chain[index]);
         const currentBlock = new Block(this.chain[index].index, this.chain[index].data, this.chain[index].prev);
         currentBlock.mineBlock(this.difficulty);
-        //console.log(currentBlock);
         this.chain[index] = currentBlock;
         this.calculateBlocksHash(index);
     }
